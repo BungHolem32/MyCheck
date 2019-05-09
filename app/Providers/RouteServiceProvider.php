@@ -23,8 +23,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::pattern('movie_id', '[0-9]+');
-
         parent::boot();
     }
 

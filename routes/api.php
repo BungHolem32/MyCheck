@@ -16,3 +16,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+//There are two choices to get to this api
+
+//ABSOLUTE URL
+Route::get('/movie-recommendations/', 'RecommendationsController@index');
+
+//HIERARCHICAL URL
+Route::get('/movies/{movie_id}/recommendations/', 'RecommendationsController@index');
+Route::get('/movies/{movie_id}/recommendations/?depth={depth?}', 'RecommendationsController@index');

@@ -56,14 +56,12 @@ the movie.
    
 ## Usage 
    
-   ### Base assumptions :
-1. i assume that all recommended movies are related to movie controller.
-2. the endpoint is built under the movies hierarchy path ,and not built as absolute path
-     - `movie/{movie_id}/recommandations` and not `/recommandations?movie_id=5`.
+###End Points:
    
-   
-   ###End Points:
-1. `http://{your-domain}/movies/{movie_id}/recommendations`
+#### Hierarchical:   
+- all recommended movies are related to movie id so they need to be related to him.
+
+1. `http://{your-domain}/movies/{movie_id}/recommendations` 
 
     Will return recommended movies according to movie_id 
 
@@ -78,3 +76,20 @@ the movie.
    2.  Params: `Path`=['movie_id'] , `Query`=['depth'] integer between 0 - 3
    
 
+#### Absolute:
+- the url is absolute and not attached to no other model.
+
+1. `http://{your-domain}/movie-recommendations/movie_id={movie_id}` 
+
+    Will return recommended movies according to movie_id 
+
+   1. Method: GET
+   2. Params:`Query`= ['movie_id'] integer
+   
+2. `http://{your-domain}/movie-recommendations/movie_id={movie_id}&depth={depth}` 
+
+   Will return recommended movies of recommended movies according to depth param (max depth 3)
+   
+   1.  Method: GET 
+   2.  Params: `Query`= ['movie_id'] integer , ['depth'] integer between 0 - 3
+   
