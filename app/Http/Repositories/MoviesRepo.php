@@ -82,11 +82,10 @@ class MoviesRepo
          * @return array
          */
             function ($idx, $movie) {
-
                 return [
                     'id'           => $movie->getId(),
                     'name'         => $movie->getTitle(),
-                    'release-date' => $movie->getReleaseDate()
+                    'release-year' => $movie->getReleaseDate()->format('Y')
                 ];
             });
 
@@ -130,7 +129,7 @@ class MoviesRepo
                 return $this->loadRecommended($recommended_movie, $depth - 1);
             });
         }
-        $movie['recommended'] = $recommended_movies->toArray();
+        $movie['recommendations'] = $recommended_movies->toArray();
 
         return $movie;
     }

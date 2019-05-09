@@ -12,9 +12,8 @@
 */
 
 Route::get('/', function () {
-    return redirect('/movies/2/recommendations');
+    return view('welcome');
 });
 
 Route::get('/movies/{movie_id}/recommendations', 'RecommendationsController@index');
-Route::get('/movies/{movie_id}/recommendations/{depth?}', 'RecommendationsController@index')
-    ->where(['depth' => '[0-3]+']);
+Route::get('/movies/{movie_id}/recommendations/?depth={depth}', 'RecommendationsController@index');

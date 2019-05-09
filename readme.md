@@ -53,4 +53,10 @@ the movie.
    - type `composer install`
    - type `php artisan serve`
    - enter into this url http://localhost:8000
+   
+   ## Usage 
+   
+   -  http://localhost/movies/{movie_id}/recommendations - will return recommended movies according to movie_id 
+   - http://localhost/movies/{movie_id}/recommendations/{depth} - will return recommended movies of recommended movies 
+      - max depth is 3.
 

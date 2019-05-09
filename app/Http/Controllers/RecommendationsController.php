@@ -20,12 +20,11 @@ class RecommendationsController extends Controller
 
     /**
      * @param      $id
-     * @param bool $depth
      *
-     * @internal $response_object
      * @return \Illuminate\Http\JsonResponse
+     * @internal $response_object
      */
-    function index($id, $depth = false)
+    function index($id)
     {
         $response_object         = collect(['message' => 'no recommendations found', 'status' => 204, 'data' => null]);
         $recommended_movies      = $this->movie_repo->resolveRecommandations($id);
@@ -34,7 +33,7 @@ class RecommendationsController extends Controller
         if (!$recommendation_is_empty) {
             $message         = "these movies are recommended according to the movie id {$id}";
             $response_object = collect(['message' => $message, 'status' => 200, 'data' => $recommended_movies]);
-            $this->resolveRecursive($id, $depth, $response_object);
+            $this->resolveRecursive($id,$response_object);
         }
 
         return response()->json($response_object);
@@ -42,17 +41,31 @@ class RecommendationsController extends Controller
 
     /**
      * @param int                            $id
-     * @param                                $depth
      * @param \Illuminate\Support\Collection $response_object
+     *
+     * @return bool
      */
-    private function resolveRecursive(int $id, $depth, $response_object)
+    private function resolveRecursive(int $id, $response_object)
     {
-        if ($depth) {
-            $recommendations = $this->movie_repo->getRecommendedRecursively($id, $depth);
+        $depth = request()->query('depth') ? request()->query('depth') : false;
 
-            if ($recommendations) {
-                $response_object->put('data', $recommendations);
+        if (!$depth) {
+            return true;
+        }
+
+        if ($depth > 3) {
+            $not_allowed_response = ['data' => null, 'message' => 'max allowed depth is 3!', 'status' => 400];
+
+            foreach ($not_allowed_response as $key => $value) {
+                $response_object->put($key, $value);
             }
+
+            return true;
+        }
+
+        $recommendations = $this->movie_repo->getRecommendedRecursively($id, $depth);
+        if ($recommendations) {
+            $response_object->put('data', $recommendations);
         }
     }
 }
