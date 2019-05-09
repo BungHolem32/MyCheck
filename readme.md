@@ -63,4 +63,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# MyCheck
+
+
+# MyCheck - Movie Recommendation
+
+## The Mission
+
+1. Create endpoint for movies recommendations
+- Create endpoint for movies recommendations
+- Create an endpoint that receives a movie ID, the returns other movies as
+  recommendation, from the API.
+- The result of the recommendations should include only the id, name and release year of
+the movie.
+- show only the first 3 recommended movies.
