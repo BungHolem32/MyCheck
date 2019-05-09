@@ -56,7 +56,19 @@ the movie.
    
    ## Usage 
    
-   -  http://localhost/movies/{movie_id}/recommendations - will return recommended movies according to movie_id 
-   - http://localhost/movies/{movie_id}/recommendations/{depth} - will return recommended movies of recommended movies 
-      - max depth is 3.
+   ###End Points:
+1. `http://{your-domain}/movies/{movie_id}/recommendations`
+
+    Will return recommended movies according to movie_id 
+
+   1. Method: GET
+   2. Params: `Path` - ['movie_id'] -> integer 
+   
+2. `http://{your-domain}/movies/{movie_id}/recommendations?depth={depth}` 
+
+   Will return recommended movies of recommended movies according to depth param (max depth 3)
+   
+   1.  Method: GET 
+   2.  Params: `Path`=['movie_id'] , `Query`=['depth'] integer between 0 - 3
+   
 
