@@ -54,7 +54,13 @@ the movie.
    - type `php artisan serve`
    - enter into this url http://localhost:8000
    
-   ## Usage 
+## Usage 
+   
+   ### Base assumptions :
+1. i assume that all recommended movies are related to movie controller.
+2. the endpoint is built under the movies hierarchy path ,and not built as absolute path
+     - `movie/{movie_id}/recommandations` and not `/recommandations?movie_id=5`.
+   
    
    ###End Points:
 1. `http://{your-domain}/movies/{movie_id}/recommendations`
