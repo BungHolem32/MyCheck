@@ -62,7 +62,7 @@ the movie.
 - all recommended movies are related to movie id so they need to be related to him.
 
 1. `http://{your-domain}/movies/{movie_id}/recommendations` 
-
+ v
     Will return recommended movies according to movie_id 
 
    1. Method: GET

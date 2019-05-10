@@ -34,6 +34,7 @@ class RecommendationsController extends Controller
         if (!$recommendation_is_empty) {
             $message         = "these movies are recommended according to the movie id {$movie_id}";
             $response_object = collect(['message' => $message, 'status' => 200, 'data' => $recommended_movies]);
+
             $this->resolveRecursive($movie_id, $response_object);
         }
 
