@@ -12,7 +12,7 @@ class MovieRepoTest extends TestCase
 {
 
     /**
-     * A basic test example.
+     * Test that movie repo created successfully with all his attributes.
      *
      * @return void
      */
@@ -26,7 +26,7 @@ class MovieRepoTest extends TestCase
     }
 
     /**
-     * A basic test example.
+     * Test Get Recommandations  according to movie id field.
      *
      * @return void
      */
@@ -49,17 +49,17 @@ class MovieRepoTest extends TestCase
 
 
     /**
-     * A basic test example.
+     * Test Get Recommandations Recursively according to depth field.
      *
      * @return void
      */
     public function testGetRecommandationsByMovieIdRecursively()
     {
-        $movie_id    = '33';
-        $depth       = 2;
-        $recommended = $this->movie_repo->getRecommendedRecursively($movie_id, $depth);
-        $length      = count($recommended);
-        $first_result        = $recommended[0];
+        $movie_id     = '33';
+        $depth        = 2;
+        $recommended  = $this->movie_repo->getRecommendedRecursively($movie_id, $depth);
+        $length       = count($recommended);
+        $first_result = $recommended[0];
 
         $this->assertNotEmpty($recommended);
         $this->assertEquals(3, $length);
@@ -72,7 +72,7 @@ class MovieRepoTest extends TestCase
 
 
     /**
-     *
+     * create MovieRepo instance before run tests
      */
     public function setUp()
     {
