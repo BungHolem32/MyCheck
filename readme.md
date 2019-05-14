@@ -61,7 +61,7 @@ the movie.
 #### Hierarchical:   
 - all recommended movies are related to movie id so they need to be related to him.
 
-1. `http://{your-domain}/movies/{movie_id}/recommendations` 
+1. `http://{your-domain}/api/movies/{movie_id}/recommendations` 
  v
     Will return recommended movies according to movie_id 
 
