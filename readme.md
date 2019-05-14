@@ -68,7 +68,7 @@ the movie.
    1. Method: GET
    2. Params: `Path` - ['movie_id'] -> integer 
    
-2. `http://{your-domain}/movies/{movie_id}/recommendations?depth={depth}` 
+2. `http://{your-domain}/api/movies/{movie_id}/recommendations?depth={depth}` 
 
    Will return recommended movies of recommended movies according to depth param (max depth 3)
    
