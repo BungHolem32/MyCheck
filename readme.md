@@ -79,14 +79,14 @@ the movie.
 #### Absolute:
 - the url is absolute and not attached to no other model.
 
-1. `http://{your-domain}/movie-recommendations/movie_id={movie_id}` 
+1. `http://{your-domain}/api/movie-recommendations/movie_id={movie_id}` 
 
     Will return recommended movies according to movie_id 
 
    1. Method: GET
    2. Params:`Query`= ['movie_id'] integer
    
-2. `http://{your-domain}/movie-recommendations/movie_id={movie_id}&depth={depth}` 
+2. `http://{your-domain}/api/movie-recommendations/movie_id={movie_id}&depth={depth}` 
 
    Will return recommended movies of recommended movies according to depth param (max depth 3)
    
